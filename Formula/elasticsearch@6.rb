@@ -1,8 +1,8 @@
-class ElasticsearchAT64 < Formula
+class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.4.2.tar.gz"
-  sha256 "c59aa00fd4ee03e45ac35a739b072558d8a63f06a9c34d4e38630c7ce3e3e486"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.7.1.tar.gz"
+  sha256 "712bb6247431fdd9b68e33953ee8721e8402b1026f6d1c102fd65945f5c5688f"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -83,7 +83,7 @@ class ElasticsearchAT64 < Formula
     s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@6.4/bin/elasticsearch"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@6.7/bin/elasticsearch"
 
   def plist
     <<~EOS
