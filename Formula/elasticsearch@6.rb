@@ -4,16 +4,11 @@ class ElasticsearchAT6 < Formula
   url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.7.1.tar.gz"
   sha256 "712bb6247431fdd9b68e33953ee8721e8402b1026f6d1c102fd65945f5c5688f"
 
-  head do
-    url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on "gradle" => :build
-  end
-
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -26,7 +21,8 @@ class ElasticsearchAT6 < Formula
       # Extract the package to the tar directory
       mkdir "tar"
       cd "tar"
-      system "tar", "--strip-components=1", "-xf", Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
+      system "tar", "--strip-components=1", "-xf",
+        Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
     end
 
     # Remove Windows files
